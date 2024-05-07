@@ -3,70 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>DevSecOps</title>
     <style>
         body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
             background-color: #f0f0f0;
         }
         .container {
-            width: 300px;
-            margin: 100px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
-        h2 {
-            text-align: center;
+        h1 {
+            color: #007bff;
+            font-size: 3em;
             margin-bottom: 20px;
         }
-        input[type="text"], input[type="password"] {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+        #cool-effect {
+            font-size: 2em;
+            color: #ff4500;
+            animation: coolEffect 2s linear infinite;
         }
-        input[type="submit"] {
-            width: 100%;
-            padding: 10px;
+        @keyframes coolEffect {
+            0% { text-shadow: 0 0 10px #ff4500; }
+            50% { text-shadow: 0 0 20px #ff4500; }
+            100% { text-shadow: 0 0 10px #ff4500; }
+        }
+        .login-button {
             background-color: #007bff;
             color: #fff;
             border: none;
-            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1em;
             cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
-        input[type="submit"]:hover {
+        .login-button:hover {
             background-color: #0056b3;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Login</h2>
-        <form id="loginForm" onsubmit="return false;">
-            <input type="text" id="username" placeholder="Username" required><br>
-            <input type="password" id="password" placeholder="Password" required><br>
-            <input type="submit" value="Login" onclick="login()">
-        </form>
+        <h1>DevSecOps</h1>
+        <p id="cool-effect">Something cool is happening here...</p>
+        <button class="login-button" onclick="login()">Login</button>
     </div>
 
     <script>
         function login() {
-            var username = document.getElementById("username").value;
-            var password = document.getElementById("password").value;
-
-            // Here you can add your logic to validate the username and password
-            // For a simple example, let's just log them to the console
-            console.log("Username: " + username);
-            console.log("Password: " + password);
-
-            // After validation, you can redirect the user to another page
-            // For now, let's just display an alert
-            alert("Logged in successfully!");
+            alert("Logged in as admin:admin");
+            // You can add logic to redirect to a dashboard or perform other actions after login
         }
     </script>
 </body>
