@@ -31,7 +31,9 @@
             margin-bottom: 10px;
         }
 
-        input[type="text"] {
+        input[type="text"],
+        input[type="email"],
+        textarea {
             width: 100%;
             padding: 10px;
             margin-bottom: 20px;
@@ -77,7 +79,7 @@
     <div class="container">
         <h1>DevSecOps Webpage</h1>
         
-        <form id="searchForm">
+        <form id="searchForm" onsubmit="search()">
             <label for="search">Search:</label>
             <input type="text" id="search" name="search" placeholder="Enter your search term...">
             <button type="submit">Search</button>
@@ -95,7 +97,7 @@
         <hr>
 
         <h2>Contact Us</h2>
-        <form id="contactForm">
+        <form id="contactForm" onsubmit="contact()">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
             <label for="email">Email:</label>
@@ -109,32 +111,30 @@
     </div>
 
     <script>
-        document.getElementById("searchForm").addEventListener("submit", function(event) {
-            event.preventDefault();
+        function search() {
             var searchTerm = document.getElementById("search").value;
             document.getElementById("searchResult").innerText = "You searched for: " + searchTerm;
 
-            // Add recent search to the list
+            // Add recent search to the list (vulnerable to XSS)
             var recentSearchesList = document.getElementById("recentSearches");
             var recentSearchItem = document.createElement("li");
             recentSearchItem.textContent = searchTerm;
             recentSearchesList.appendChild(recentSearchItem);
-        });
+        }
 
-        document.getElementById("contactForm").addEventListener("submit", function(event) {
-            event.preventDefault();
+        function contact() {
             var name = document.getElementById("name").value;
             var email = document.getElementById("email").value;
             var message = document.getElementById("message").value;
 
-            // Perform rudimentary validation
-            if (name && email && message) {
-                // Simulate sending the message (insecure)
-                document.getElementById("contactResponse").textContent = "Your message has been sent!";
-            } else {
-                document.getElementById("contactResponse").textContent = "Please fill in all fields.";
-            }
-        });
+            // Simulate sending the message (insecure)
+            document.getElementById("contactResponse").textContent = "Your message has been sent!";
+
+            // Vulnerable to SQL Injection
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "https://example.com/send-message?name=" + name + "&email=" + email + "&message=" + message, true);
+            xhr.send();
+        }
     </script>
 </body>
 </html>
