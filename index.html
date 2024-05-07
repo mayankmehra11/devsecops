@@ -3,77 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-        input[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        input[type="submit"]:hover {
-            background-color: #0056b3;
-        }
-        #usernameDisplay {
-            text-align: center;
-            font-size: 1.2em;
-            margin-top: 20px;
-        }
-    </style>
+    <title>Login</title>
+    <script src="login.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <h2>Login</h2>
-        <form id="loginForm" onsubmit="return false;">
-            <input type="text" id="usernameInput" placeholder="Enter your username" required><br>
-            <input type="submit" value="Login" onclick="displayUsername()">
-        </form>
-        <div id="usernameDisplay"></div>
-    </div>
-
-    <script>
-        function displayUsername() {
-            var username = document.getElementById("usernameInput").value;
-            document.getElementById("usernameDisplay").innerText = "Welcome, " + username + "!";
-        }
-    </script>
+    <h1>Login</h1>
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required>
+        <button type="submit">Login</button>
+    </form>
 </body>
 </html>
 
-
-<!--
-[default]
 aws_access_key_id = AKIAQYLPMN5HHHFPZAM2
 aws_secret_access_key = 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
 output = json
