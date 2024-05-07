@@ -3,15 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <script src="login.js" defer></script>
+    <title>DevSecOps Webpage</title>
 </head>
 <body>
-    <h1>Login</h1>
-    <form id="loginForm">
-        <label for="username">Username:</label>
-        <input type="text" id="username" required>
-        <button type="submit">Login</button>
+    <h1>DevSecOps</h1>
+    
+    <form>
+        <label for="search">Search:</label>
+        <input type="text" id="search" name="search">
+        <button type="submit" onclick="displaySearch()">Submit</button>
     </form>
+    
+    <p id="searchResult"></p>
+
+    <script>
+        function displaySearch() {
+            var searchTerm = document.getElementById("search").value;
+            document.getElementById("searchResult").innerHTML = "You searched for: " + searchTerm;
+        }
+    </script>
 </body>
 </html>
