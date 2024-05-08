@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impressive Display</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .name-container {
+    text-align: center;
+    position: relative;
+  }
+
+  .name {
+    font-size: 48px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+  }
+
+  .name::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 2px;
+    background-color: #333;
+  }
+
+  .name:hover::after {
+    width: 100%;
+    transition: width 0.5s ease;
+  }
+
+  .name-container::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    z-index: -1;
+    background: linear-gradient(45deg, #ff8c00, #ff0080, #8a2be2, #4b0082);
+    background-size: 400% 400%;
+    border-radius: 8px;
+    animation: gradientAnimation 8s ease infinite;
+  }
+
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="name-container">
+  <div class="name">Mayank Mehra</div>
+</div>
+<script>
+  // JavaScript can be added here for additional interactivity if needed
+</script>
+</body>
+</html>
